@@ -12,8 +12,6 @@ version = "0.0.1-SNAPSHOT"
 
 java {
 	sourceCompatibility = JavaVersion.VERSION_17
-	// toolchain.languageVersion.set(JavaLanguageVersion.of(17))
-
 }
 
 configurations {
@@ -27,7 +25,6 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
@@ -40,8 +37,8 @@ dependencies {
 
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
-		jvmTarget = "17"
 		freeCompilerArgs += "-Xjsr305=strict"
+		jvmTarget = "17"
 	}
 }
 
