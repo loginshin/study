@@ -12,6 +12,8 @@ version = "0.0.1-SNAPSHOT"
 
 java {
 	sourceCompatibility = JavaVersion.VERSION_17
+	// toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+
 }
 
 configurations {
@@ -39,7 +41,7 @@ dependencies {
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		jvmTarget = "17"
-		freeCompilerArgs += "-Xjsr305=strict"
+		// freeCompilerArgs += "-Xjsr305=strict"
 	}
 }
 
