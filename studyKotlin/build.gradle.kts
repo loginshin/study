@@ -41,7 +41,7 @@ dependencies {
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		jvmTarget = "17"
-		// freeCompilerArgs += "-Xjsr305=strict"
+		freeCompilerArgs += "-Xjsr305=strict"
 	}
 }
 
