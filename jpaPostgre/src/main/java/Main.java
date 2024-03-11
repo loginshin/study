@@ -1,8 +1,12 @@
+import java.lang.reflect.Member;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+import entity.RoleType;
 import entity.UserTable;
 
 
@@ -20,16 +24,15 @@ public class Main {
 		EntityTransaction entityTransaction = entityManager.getTransaction();
 		entityTransaction.begin();						
 		
-		
 		try {
-			UserTable user = new UserTable();
 			
-			user.setId(1L);
-			user.setName("LoGinShin");
-			user.setAge(27);
+			UserTable userTable = new UserTable();
+			userTable.setId(1L);
+			userTable.setName("loginshin");
+			userTable.setAge(25);
+			userTable.setRolltype(RoleType.USER);
 			
-			entityManager.persist(user);
-			
+			entityManager.persist(userTable);
 			
 			entityTransaction.commit();
 		}catch (Exception e) {
@@ -39,13 +42,6 @@ public class Main {
 		}
 
 		entityManagerFactory.close();
-		
-		
-
-		
-
-		
-		
 		
 		
 		
