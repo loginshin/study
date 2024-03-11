@@ -25,22 +25,16 @@ public class Main {
 			
 			Team team = new Team();
 			team.setName("TeamA");
+//			team.getMember().add(member);
 			entityManager.persist(team);
 			
+			
+			// 저장
 			Member member = new Member();
 			member.setUsername("member1");
-			member.setTeam(team); // 팀 지정
-			entityManager.persist(member); //영속성 컨텍스트에 들어가 있다.
-
-			// db에서 값을 가져오고싶다면
-			entityManager.flush();
-			entityManager.clear();
+			member.setTeam(team);
+			entityManager.persist(member);
 			
-			
-			// fine로 조회하기
-			Member findMember = entityManager.find(Member.class, member.getId()); // find하면 1차 캐쉬에서 가지고 온것이다.
-			Team findTeam = findMember.getTeam();
-			System.out.println("find name = " + findTeam.getName());
 
 			
 			entityTransaction.commit();
