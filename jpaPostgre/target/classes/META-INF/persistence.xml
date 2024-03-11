@@ -16,7 +16,7 @@
             <property name="hibernate.show_sql" value="true"/> <!-- sql 보여주기 -->
             <property name="hibernate.format_sql" value="true"/> <!-- 보기좋게 포맷해줌 -->
             <property name="hibernate.use_sql_comments"  value="true"/>
-            <property name="hibernate.hbm2ddl.auto" value="create" /> <!-- 테이블 자동 생성 -->
+            <property name="hibernate.hbm2ddl.auto" value="update" /> <!-- 테이블 자동 생성 -->
         </properties>
     </persistence-unit>
 </persistence>

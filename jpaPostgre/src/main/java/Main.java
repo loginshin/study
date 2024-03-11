@@ -6,12 +6,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import entity.RoleType;
-import entity.UserTable;
-
-
-
-
 public class Main {
 
 	public static void main(String[] args) {
@@ -26,13 +20,8 @@ public class Main {
 		
 		try {
 			
-			UserTable userTable = new UserTable();
-			userTable.setId(1L);
-			userTable.setName("loginshin");
-			userTable.setAge(25);
-			userTable.setRolltype(RoleType.USER);
-			
-			entityManager.persist(userTable);
+
+
 			
 			entityTransaction.commit();
 		}catch (Exception e) {
