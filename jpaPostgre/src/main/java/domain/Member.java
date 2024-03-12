@@ -1,11 +1,16 @@
 package domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Member {
@@ -15,14 +20,22 @@ public class Member {
 	private Long id;
 	
 	@Column(name = "USERNAME")
-	private String username;
+	private String name;
 	
-	@ManyToOne
-	@JoinColumn(name = "TEAM_ID")
-	private Team team;
-
+	@Column(name ="CITY")
+	private String city;
+	
+	@Column(name ="STREET")
+	private String street;
+	
+	@Column(name ="ZIPCODE")
+	private String zipcode;
+	
+	@OneToMany(mappedBy = "member")
+	private List<Order> orders = new ArrayList<>();
+	
 	// ===================================
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -31,27 +44,48 @@ public class Member {
 		this.id = id;
 	}
 
-
-	public String getUsername() {
-		return username;
+	public String getName() {
+		return name;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public Team getTeam() {
-		return team;
+	public String getCity() {
+		return city;
 	}
 
-	public void setTeam(Team team) {
-		this.team = team;
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public String getZipcode() {
+		return zipcode;
+	}
+
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
 	
 	
-	
-	
-	
+
 	
 	
 	
