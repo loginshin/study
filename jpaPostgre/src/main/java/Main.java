@@ -7,8 +7,6 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 import domain.Book;
-import domain.Da;
-import domain.Il;
 import domain.Member;
 import domain.Team;
 
@@ -25,11 +23,7 @@ public class Main {
 		etx.begin();						
 		
 		try {
-			Book book = new Book();
-			book.setName("LoGinShin");
-			book.setAuthor("신정환");
-			
-			em.persist(book);
+
 			
 			etx.commit();
 		}catch (Exception e) {
