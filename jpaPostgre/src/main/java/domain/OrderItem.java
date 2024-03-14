@@ -2,26 +2,44 @@ package domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
+@Getter @Setter
 public class OrderItem {
 	
 	@Id @GeneratedValue
 	@Column(name = "ORDER_ITEM_ID")
 	private Long id;
+<<<<<<< Updated upstream
 	
 	@Column(name = "ORDER_ID")
 	private  Long orderId;
 	
 	@Column(name = "ITEM_ID")
 	private  Long itemId;
+=======
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name ="ORDER_ID")
+	private Order order;
+	
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ITEM_ID")
+	private Item item;
+>>>>>>> Stashed changes
 	
 	private  int orderPrice;
 	
 	private  int count;
 
+<<<<<<< Updated upstream
 	public Long getId() {
 		return id;
 	}
@@ -63,5 +81,7 @@ public class OrderItem {
 	}
 	
 	
+=======
+>>>>>>> Stashed changes
 
 }

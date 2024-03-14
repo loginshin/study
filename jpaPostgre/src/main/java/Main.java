@@ -6,6 +6,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+import domain.Book;
+import domain.Da;
+import domain.Il;
 import domain.Member;
 import domain.Team;
 
@@ -13,38 +16,29 @@ public class Main {
 
 	public static void main(String[] args) {
 		// emf 는 aplication start 부분에 딱 하나만 둬야한다.
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("hello");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
 		
-		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		EntityManager em = emf.createEntityManager();
 		
 		//트랜젝션 얻어오기
-		EntityTransaction entityTransaction = entityManager.getTransaction();
-		entityTransaction.begin();						
+		EntityTransaction etx = em.getTransaction();
+		etx.begin();						
 		
 		try {
+			Book book = new Book();
+			book.setName("LoGinShin");
+			book.setAuthor("신정환");
 			
-			Team team = new Team();
-			team.setName("TeamA");
-//			team.getMember().add(member);
-			entityManager.persist(team);
+			em.persist(book);
 			
-			
-			// 저장
-			Member member = new Member();
-			member.setUsername("member1");
-			member.setTeam(team);
-			entityManager.persist(member);
-			
-
-			
-			entityTransaction.commit();
+			etx.commit();
 		}catch (Exception e) {
-			entityTransaction.rollback();
+			etx.rollback();
 		}finally {
-			entityManager.close();
+			em.close();
 		}
 
-		entityManagerFactory.close();
+		emf.close();
 		
 		
 		
