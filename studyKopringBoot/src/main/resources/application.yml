@@ -1,0 +1,19 @@
+spring:
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+    properties.hibernate.format_sql: true
+  datasource:
+    hikari.maximum-pool-size: 5
+    url: jdbc:log4jdbc:postgresql://localhost:5432/postgres
+    username: "postgres"
+    password: "4865"
+  thymeleaf:
+    suffix: .html
+    mode: HTML
+    cache: false
+    prefix: classpath:/public/template/
+    enabled: true
+    encoding: UTF-8
+    excluded-view-names: jsp/*
